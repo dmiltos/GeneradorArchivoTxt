@@ -30,33 +30,33 @@ public class FacturaDao {
 			statement = conn.prepareStatement(SELECT_FACTURAS);
 			ResultSet result = statement.executeQuery();
 			if (result.isBeforeFirst()){
-				result.next();
-				
-				Factura factura = new Factura();
-				factura.setTipoFactura(result.getString(1));
-				factura.setNumero(result.getLong(2));
-				factura.setTimbrado(result.getLong(3));
-				cal.setTime(result.getDate(4));				
-				factura.setFecha(cal);
-				factura.setMoneda(result.getString(5));
-				factura.setCliente(result.getString(6));
-				factura.setSituacion(result.getString(7));
-				factura.setDireccion(result.getString(8));
-				factura.setPais(result.getString(9));
-				factura.setTelefono(result.getString(10));
-				factura.setCorreo(result.getString(11));
-				factura.setCondicionCompra(result.getString(12));
-				factura.setCuotas(result.getInt(13));
-				factura.setTipoIdentificacion(result.getString(14));
-				factura.setIdentificacion(result.getString(15));
-				factura.setDigitoVerificador(result.getInt(16));
-				factura.setDescripcion(result.getString(17));
-				factura.setCantidad(result.getInt(18));
-				factura.setImporteExento(result.getInt(19));
-				factura.setImporteGrav10(result.getInt(20));
-				factura.setConceptoIva(result.getString(21));
-				
-				facturas.add(factura);		
+				while(result.next()) {									
+					Factura factura = new Factura();
+					factura.setTipoFactura(result.getString(1));
+					factura.setNumero(result.getLong(2));
+					factura.setTimbrado(result.getLong(3));
+					cal.setTime(result.getDate(4));				
+					factura.setFecha(cal);
+					factura.setMoneda(result.getString(5));
+					factura.setCliente(result.getString(6));
+					factura.setSituacion(result.getString(7));
+					factura.setDireccion(result.getString(8));
+					factura.setPais(result.getString(9));
+					factura.setTelefono(result.getString(10));
+					factura.setCorreo(result.getString(11));
+					factura.setCondicionCompra(result.getString(12));
+					factura.setCuotas(result.getInt(13));
+					factura.setTipoIdentificacion(result.getString(14));
+					factura.setIdentificacion(result.getString(15));
+					factura.setDigitoVerificador(result.getInt(16));
+					factura.setDescripcion(result.getString(17));
+					factura.setCantidad(result.getInt(18));
+					factura.setImporteExento(result.getInt(19));
+					factura.setImporteGrav10(result.getInt(20));
+					factura.setConceptoIva(result.getString(21));
+					
+					facturas.add(factura);		
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

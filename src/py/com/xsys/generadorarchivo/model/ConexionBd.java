@@ -29,7 +29,7 @@ public class ConexionBd {
 		
 //		String url = "jdbc:oracle:thin:@" + host + ":" + port + ":" + dbname;  //SID
 		String url = "jdbc:oracle:thin:@" + host + ":" + port + "/" + dbname;  //SERVICE
-		
+
 		conn = DriverManager.getConnection(url, user, password);
 		return conn;
 	}
