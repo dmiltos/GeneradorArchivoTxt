@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 public class ConexionBd {
 	private static String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	
+	//Cambiar por los valores de conexion a la BD
 	protected String host = "localhost";
 	protected String port = "1521";
 	protected String dbname = "xe";
